@@ -1,0 +1,58 @@
+Go to https://nacc.arl.noaa.gov sign in with registered account
+
+1. Setup run parameters (the following example is for 36US3 domain for EMBER project)
+
+  "jobStartTime": [
+    2025,
+    1,
+    13,
+    18,
+    40,
+    48,
+    268000000
+  ],
+  "startDate": [
+    2024,
+    5,
+    1
+  ],
+  "startTime": [
+    12,
+    0
+  ],
+  "endingDate": [
+    2024,
+    10,
+    1
+  ],
+  "endingTime": [
+    12,
+    0
+  ],
+  "gdtyp": 2,
+  "alpha": 33.0,
+  "beta": 45.0,
+  "gamma": -97.0,
+  "centerX": -97.0,
+  "centerY": 40.0,
+  "originX": -2772000.0,
+  "originY": -2952000.0,
+  "cellSpacingX": 36000.0,
+  "cellSpacingY": 36000.0,
+  "columnCount": 172,
+  "rowCount": 148,
+  "ctmlays": "1.000000, 0.9975, 0.995, 0.990, 0.985, 0.980, 0.970, 0.960, 0.950, 0.940, 0.930, 0.920, 0.910, 0.900, 0.880, 0.860, 0.840, 0.820, 0.800, 0.770, 0.740, 0.700, 0.650, 0.600, 0.550, 0.500, 0.450, 0.400, 0.350, 0.300, 0.250, 0.200, 0.150, 0.100, 0.050, 0.000",
+
+
+2. Submit the job
+
+NACC cloud will return a slurm job script, and after a while will generate ouputs in "Model Status" windows with run parameters and url to AWS S3 bucket output netcdf file
+Note that these urls will take some significant time before they are available for download
+
+3. Copy the content of "Model Status" and paste to local file (e.g., from_cloud/NACC_Portal_Filelist_redo.txt)
+
+4. Use grep command to extract urls of netcdf file
+grep ".ncf" NACC_Portal_Filelist_redo.txt > NACC_Portal_url.txt
+
+5. Use wget command to download data from extracted urls using "-c" option to continue pending donwload and skipped previously downloaded file
+wget -i NACC_Portal_url.txt -c
