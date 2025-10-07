@@ -1,0 +1,8 @@
+{
+    "name": "2024 ARCH",
+    "_comment_": "Dates in YYYYMMDD format",
+    "start_date": "20240101",
+    "end_date": "20241031",
+    "sources": ["HMS 2024 ARCH US","WFIGS 2024 ARCH","HMS 2024 ARCH Canada","NBAC 2024 ARCH"],
+    "export_path": "/proj/ie/proj/GSA-EMBER/BlueSky/sf2py/outputs/2024"
+}

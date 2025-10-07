@@ -1,0 +1,50 @@
+#
+# NOTES TO CONSIDER WHEN BUILDING THIS DATASET:
+#   1) Temporal runs all days for each month in a single instance, so you
+#      cannot use run_settings.txt to turn off only certain days in a month for 
+#      Temporal. It's all or nothing, and is determined by whether the first 
+#      representative day of the month is Y or N. 
+#      Smkmerge/Movesmrg/Mrggrid can be turned off for individual days.
+#   2) Entries do not need to be here for a "Yes", since the defaults in the
+#      main run script are assumed to be "Yes".  However, including "Y" entries
+#      will not hurt anything (except for Temporal, see #4).
+#   3) Sector-specific "Y" entries will override Sector = "all" "N" entries 
+#      for the same grid, program, part, and date range.
+#   4) The bug where explicit Temporal=Y settings result in the Temporal outputs
+#      being deleted as soon as they are created has been FIXED (as of 11/12/20).
+#   5) The domain totals program ("domain") doesn't work for files larger than 2 GB. 
+#      This only comes up when running 3-D emissions.
+#
+# On 26 May 2017, C. Allen edited all active run scripts to turn off PART2 Smkreport for good.
+# So, we don't need to turn off PART2 Smkreport in here anymore.
+#
+# Column labels:
+# Sector, Grid, Environment Variable Name, Part, Start Date, End Date, Value
+beis4, 12US1, normbeis4, PART1, 0, 0, N
+canmex_point, 12US1, smkreport, PART1, 0, 0, N
+#ptfire-wild, 12US1, smkreport, PART1, 0, 0, N
+#edgar_total, 12US1, smkinven, PART1, 0, 0, N
+#edgar_total, 12US1, grdmat, PART1, 0, 0, N
+#edgar_total, 12US1, spcmat, PART1, 0, 0, N
+#edgar_total, 12US1, temporal, PART2, 0, 0, N
+#edgar_total, 12US1, smkmerge, PART4, 0, 0, N
+#edgar_solven, 12US1, smkinven, PART1, 0, 0, N
+#edgar_solven, 12US1, grdmat, PART1, 0, 0, N
+#edgar_solven, 12US1, spcmat, PART1, 0, 0, N
+#edgar_solven, 12US1, temporal, PART2, 0, 0, N
+#edgar_solven, 12US1, smkmerge, PART4, 0, 0, N
+test_ptegu_v9, 12US1, smkinven, all, 0, 0, Y
+test_ptegu_v9, 12US1, spcmat, all, 0, 0, N
+test_ptegu_v9, 12US1, grdmat, all, 0, 0, N
+test_ptegu_v9, 12US1, cntlmat, all, 0, 0, N
+test_ptegu_v9, 12US1, elevpoint, all, 0, 0, N
+test_ptegu_v9, 12US1, temporal, all, 0, 0, N
+test_ptegu_v9, 12US1, smkmerge, all, 0, 0, N
+test_ptegu_v9, 12US1, smkreport, all, 0, 0, N
+test_ptegu_v13, 12US1, smkinven, all, 0, 0, Y
+test_ptegu_v13, 12US1, spcmat, all, 0, 0, N
+test_ptegu_v13, 12US1, grdmat, all, 0, 0, N
+test_ptegu_v13, 12US1, cntlmat, all, 0, 0, N
+test_ptegu_v13, 12US1, temporal, all, 0, 0, N
+test_ptegu_v13, 12US1, smkmerge, all, 0, 0, N
+test_ptegu_v13, 12US1, smkreport, all, 0, 0, N

@@ -1,0 +1,84 @@
+{ "config": {
+    "filter": {
+        "location": {
+            "boundary": {
+                "sw": {
+                    "lat": 24.0,
+                    "lng": -126.0
+                    },
+                "ne": {
+                    "lat": 49.0,
+                    "lng": -67.0
+                    }
+                }
+            }
+
+        },
+    "timeprofile": {
+            "model": "static"
+        },
+    "fuelbeds": {
+            "fccs_fuelload_file": "/proj/ie/proj/GSA-EMBER/BlueSky/from_EPA/ember_package/geospatial/lf22_2022_120m_smartmode_fix.nc",
+            "fccs_fuelload_param": "Band1",
+            "fccs_fuelload_grid_resolution": 0.12,
+            "ignored_fuelbeds": [0,900,"0","900",-9999,"-9999.0","-9999"]
+        },
+    "extrafiles": {
+            "dest_dir": "/proj/ie/proj/GSA-EMBER/BlueSky/ember_2024/outputs/us",
+            "sets": ["firescsvs","emissionscsv"],
+            "firescsvs": {
+                "fire_locations_filename": "fire_locations_{today:%Y%m%d}_wf.csv",
+                "fire_events_filename": "fire_events_{today:%Y%m%d}_wf.csv"
+                },
+            "emissionscsv": {
+                "filename": "emissions_{today:%Y%m%d}_wf.csv"
+               } 
+        },
+    "consumption": {
+            "default_ecoregion": "western",
+            "consume_settings": {
+                "all": {
+                    "fuel_moisture_1000hr_pct": {
+                        "default": 30,
+                        "defaults": {
+                            "wf": 30,
+                            "rx": 30,
+                            "other": 30
+                            }
+                        },
+                    "fuel_moisture_duff_pct": {
+                        "default": 75,
+                        "defaults": {
+                            "wf": 75,
+                            "rx": 75,
+                            "other": 75
+                            }
+                        },
+                    "fuel_moisture_litter_pct": {
+                        "default": 16,
+                        "defaults": {
+                            "wf": 16,
+                            "rx": 16,
+                            "other": 16
+                            }
+                        },
+                    "canopy_consumption_pct": {
+                        "default": 50,
+                        "defaults": {
+                            "wf": 50,
+                            "rx": 50,
+                            "other": 50
+                            }
+                        },
+                    "duff_pct_available": {
+                        "defaults": {
+                        "other": 100,
+                        "rx": 100,
+                        "wf": 100
+                        }
+                    } 
+                }
+            }
+        }
+    }
+}
